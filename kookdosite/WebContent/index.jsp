@@ -13,7 +13,7 @@
     <div class="probootstrap-image probootstrap-animate" data-animate-effect="fadeIn" style="background-image: url(<c:url value="/resources/img/image_3.jpg" />)"></div>
     <div class="probootstrap-text">
       <div class="probootstrap-inner probootstrap-animate">
-        <h1 class="heading">회사 소개 파트</h1>
+        <h1 class="heading">회사 소개 파트test</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum asperiores dicta tempore dolores odit eveniet, vel itaque recusandae sunt consequuntur quod dolor sint non accusamus et a, sequi. Vitae, necessitatibus!</p>
         <p><a href="single-page.html" class="btn btn-primary">Learn More</a></p>
       </div>
