@@ -13,13 +13,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class Index
  */
 @WebServlet("/index.do")
-public class Index extends HttpServlet {
+public class IndexController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Index() {
+    public IndexController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,8 +28,11 @@ public class Index extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("msg", "123123123123");
-		response.sendRedirect("/kookdosite/index.jsp");
+		System.out.println("Index Servlet");
+		request.setAttribute("testmsg", "123123123123");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**

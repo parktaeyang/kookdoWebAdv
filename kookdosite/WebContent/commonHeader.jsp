@@ -2,7 +2,6 @@
 <%@ page contentType="text/html;charset=UTF-8" import="kookdo.conn.model.*" %>
 <% 
 String ctx = request.getContextPath();
-//UserVO usr = (UserVO)session.getAttribute("loginUser");
 %>
 <head>
 	<meta charset="UTF-8">
@@ -33,7 +32,7 @@ String ctx = request.getContextPath();
 
     <header role="banner" class="probootstrap-header">
       <div class="container">
-          <a href="<%=ctx%>/index.do" class="probootstrap-logo"  style="color: red">국도머신 로고(해더사용)<%= (String)request.getAttribute("msg")%></a>
+          <a href="<%=ctx%>/index.do" class="probootstrap-logo"  style="color: red">국도머신 로고(해더사용)${testmsg}</a>
 
           <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
           <div class="mobile-menu-overlay"></div>
