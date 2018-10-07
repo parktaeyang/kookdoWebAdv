@@ -53,7 +53,7 @@ String ctx = request.getContextPath();
               <li class="dropdown"><button class="dropbtn">Contact Us</button>
                 <span class="dropdown-content">
                   <a href="#">Information</a>
-                  <a href="<%=ctx%>/businesstripreport.do">출장보고서</a>
+                  <a href="<%=ctx%>/tripreport_list.do">출장보고서</a>
                   <a href="#">매각신청</a>
                 </span>
               </li>
