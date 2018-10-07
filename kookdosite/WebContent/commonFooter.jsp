@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page session="false" %>
 <% String ctx = request.getContextPath(); %>    
-    <!-- START: footer --><!-- 나중에 싸이트맵 include 하기-->
+    <!-- START: footer -->
     <footer class="probootstrap-footer">
       <div class="container">
         <div class="row">
