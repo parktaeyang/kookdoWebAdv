@@ -33,7 +33,7 @@
 					<tbody>
 						<c:if test="${boardList==null || empty boardList}">
 							<tr>
-								<td colspan="5">${errorMsg}서버오류이거나 데이터가 존재하지 않습니다.</td>
+								<td colspan="5">서버오류이거나 데이터가 존재하지 않습니다.</td>
 							</tr>
 						</c:if>
 
@@ -88,7 +88,7 @@
 							</ul>
 						</td>
 						<td>
-							<a class="btn btn-success" href="borderwritemove.do">출장보고서 작성</a>
+							<a class="btn btn-success" href="tripreportwrite.do">출장보고서 작성</a>
 							<a class="btn btn-success" href="testdatainsert.do">test데이터 생성</a>
 						</td>
 					</tr>

@@ -21,7 +21,7 @@
   </section>
   <!-- END section -->
   <section class="probootstrap-section-half probootstrap-reverse">
-    <div class="probootstrap-image probootstrap-animate"  data-animate-effect="fadeIn" style="background-image: url(<c:url value="/resources/img/image_2.jpg" />)"></div>
+    <div class="probootstrap-image probootstrap-animate"  data-animate-effect="fadeIn" style="background-image: url(<c:url value="/resources/img/machine/bending_machine.jpg" />)"></div>
     <div class="probootstrap-text">
       <div class="probootstrap-inner probootstrap-animate">
         <h1 class="heading">제품명</h1>
@@ -32,7 +32,7 @@
   </section>
   <!-- END section -->
   <section class="probootstrap-section-half">
-    <div class="probootstrap-image probootstrap-animate" data-animate-effect="fadeIn" style="background-image: url(<c:url value="/resources/img/image_3.jpg" />)"></div>
+    <div class="probootstrap-image probootstrap-animate" data-animate-effect="fadeIn" style="background-image: url(<c:url value="/resources/img/machine/bending_machine_hydraulic_high.jpg" />)"></div>
     <div class="probootstrap-text">
       <div class="probootstrap-inner probootstrap-animate">
         <h1 class="heading">제품명</h1>
@@ -43,7 +43,7 @@
   </section>
   <!-- END section -->
   <section class="probootstrap-section-half probootstrap-reverse">
-    <div class="probootstrap-image probootstrap-animate" data-animate-effect="fadeIn" style="background-image: url(<c:url value="/resources/img/image_4.jpg" />)"></div>
+    <div class="probootstrap-image probootstrap-animate" data-animate-effect="fadeIn" style="background-image: url(<c:url value="/resources/img/machine/bending_machine_hydraulic_down.jpg" />)"></div>
     <div class="probootstrap-text">
       <div class="probootstrap-inner probootstrap-animate">
         <h1 class="heading">제품명</h1>

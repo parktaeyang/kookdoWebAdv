@@ -32,14 +32,14 @@ String ctx = request.getContextPath();
 
     <header role="banner" class="probootstrap-header">
       <div class="container">
-          <a href="<%=ctx%>/index.do" class="probootstrap-logo"  style="color: red">국도머신 로고(해더사용)${testmsg}</a>
+          <a href="index.do" class="probootstrap-logo"  style="color: red">국도머신 로고</a>
 
           <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
           <div class="mobile-menu-overlay"></div>
 
           <nav role="navigation" class="probootstrap-nav hidden-xs">
             <ul class="probootstrap-main-nav">
-              <li class="dropdown"><button class="dropbtn"><a href="<%=ctx%>/about.do">About</a></button>
+              <li class="dropdown"><button class="dropbtn"><a href="about.do">About</a></button>
               </li>
               <li class="dropdown"><button class="dropbtn">Products</button>
                 <span class="dropdown-content">
@@ -53,7 +53,7 @@ String ctx = request.getContextPath();
               <li class="dropdown"><button class="dropbtn">Contact Us</button>
                 <span class="dropdown-content">
                   <a href="#">Information</a>
-                  <a href="<%=ctx%>/tripreport_list.do">출장보고서</a>
+                  <a href="tripreport_list.do">출장보고서</a>
                   <a href="#">매각신청</a>
                 </span>
               </li>

@@ -22,28 +22,35 @@ public class TripReportController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String URL="jdbc:mysql://xodxod12345.cafe24.com/xodxod12345";
-		String USER="xodxod12345";
-		String PASS="Ekdmsdl123!";
+		
+		String URL="jdbc:mysql://localhost:3306/xodxod12345?serverTimezone=UTC";
+		String USER="root"; //로컬테스트 
+		String PASS="pass123"; //로컬테스트
+		//String USER="xodxod12345"; //개발테스트
+		//String PASS="Ekdmsdl123!"; //개발테스트
 		
 		String errorTest = "";
-		
+		String note = "";
+		String remark = "";
 		Connection conn =null;
 		Statement stmt = null;
 		ResultSet rs = null;
 		
 		try{
-
-			Class.forName("com.mysql.jdbc.Driver"); //이게 맞는듯?
-
+			System.out.println("1");		
+			Class.forName("com.mysql.jdbc.Driver");
+			System.out.println("2");
 			conn = DriverManager.getConnection(URL,USER,PASS);
+			System.out.println("3");
 			stmt = conn.createStatement();
+			System.out.println("4");
 			rs= stmt.executeQuery("select * from kdboardtest");
 
+			
 			while(rs.next()){
 
-				String note = rs.getString("pid");
-				String remark = rs.getString("name");
+				note = rs.getString("note");
+				remark = rs.getString("remark");
 
 				System.out.println("내용 : " + note + "비고" + remark);		
 
@@ -52,14 +59,16 @@ public class TripReportController extends HttpServlet {
 
 		} catch(SQLException | ClassNotFoundException e){
 			errorTest = "occur error";
-			System.out.println(""+e.getMessage());
+			request.setAttribute("errorTest", errorTest);
+			e.printStackTrace();
 		} finally{
 			if(rs != null) try{rs.close();} catch(SQLException ex){}
 			if(stmt != null) try{stmt.close();} catch(SQLException ex){}
 			if(conn != null) try{conn.close();} catch(SQLException ex){}
 		}
 		
-		request.setAttribute("errorMsg", errorTest);
+		request.setAttribute("note", note);
+		request.setAttribute("remark", remark);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("views/board/businesstripreport_list.jsp");
 		dispatcher.forward(request, response);
 	}
