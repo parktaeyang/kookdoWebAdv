@@ -37,13 +37,9 @@ public class TripReportController extends HttpServlet {
 		ResultSet rs = null;
 		
 		try{
-			System.out.println("1");		
 			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println("2");
 			conn = DriverManager.getConnection(URL,USER,PASS);
-			System.out.println("3");
 			stmt = conn.createStatement();
-			System.out.println("4");
 			rs= stmt.executeQuery("select * from kdboardtest");
 
 			
