@@ -41,7 +41,7 @@ String ctx = request.getContextPath();
             <ul class="probootstrap-main-nav">
               <li class="dropdown"><button class="dropbtn"><a href="about.do">About</a></button>
               </li>
-              <li class="dropdown"><button class="dropbtn">Products</button>
+              <li class="dropdown"><button class="dropbtn"><a>Products</a></button>
                 <span class="dropdown-content">
                   <a href="#">유압식 절단기</a>
                   <a href="#">유압식 절곡기</a>
@@ -50,7 +50,7 @@ String ctx = request.getContextPath();
                   <a href="#">NC 펀칭프레스</a>
                 </span>
               </li>
-              <li class="dropdown"><button class="dropbtn">Contact Us</button>
+              <li class="dropdown"><button class="dropbtn"><a>Contact Us</a></button>
                 <span class="dropdown-content">
                   <a href="#">Information</a>
                   <a href="tripreport_list.do">출장보고서</a>

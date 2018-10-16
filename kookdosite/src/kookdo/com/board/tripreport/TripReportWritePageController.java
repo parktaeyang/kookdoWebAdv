@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class TripReportWritePage
  */
-@WebServlet("/tripreportwritepage")
+@WebServlet("/tripreportwritepage.do")
 public class TripReportWritePageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

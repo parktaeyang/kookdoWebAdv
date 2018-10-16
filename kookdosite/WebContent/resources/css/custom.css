@@ -33,10 +33,9 @@ button {
     display: block;
     text-align: center;
     border-bottom: 1px solid white;
-    background-color: #F5F5F5;
+    background-color: #635f5f;
     height: auto;
     border-radius: 2px;
-    background-color:rgba(0, 0, 0, 0.1);
 }
 
 .dropdown-content a:hover {
