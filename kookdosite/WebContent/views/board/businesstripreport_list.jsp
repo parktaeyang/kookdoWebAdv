@@ -88,7 +88,7 @@
 							</ul>
 						</td>
 						<td>
-							<a class="btn btn-success" href="tripreportwrite.do">출장보고서 작성</a>
+							<a class="btn btn-success" href="tripreportwritepage.do">출장보고서 작성</a>
 							<a class="btn btn-success" href="testdatainsert.do">test데이터 생성</a>
 						</td>
 					</tr>

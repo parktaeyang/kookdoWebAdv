@@ -24,10 +24,10 @@ public class TripReportController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String URL="jdbc:mysql://localhost:3306/xodxod12345?serverTimezone=UTC";
-		String USER="root"; //로컬테스트 
-		String PASS="pass123"; //로컬테스트
-		//String USER="xodxod12345"; //개발테스트
-		//String PASS="Ekdmsdl123!"; //개발테스트
+		//String USER="root"; //로컬테스트 
+		//String PASS="pass123"; //로컬테스트
+		String USER="xodxod12345"; //개발테스트
+		String PASS="Ekdmsdl123!"; //개발테스트
 		
 		String errorTest = "";
 		String note = "";
