@@ -1,8 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page session="false" %>
 <%@ page import="java.sql.*" %>
 <% String ctx = request.getContextPath(); %>
+
 <html>
 <jsp:include page="../../commonHeader.jsp" />
 
@@ -13,7 +13,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6">
-			  <form class="form-signin" method="post" id="loginData">
+			  <form class="form-signin" method="post" action="Login.do">
 			    <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
 			    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 			    <input type="text" id="userId" name="userId" class="form-control" placeholder="ID"  >
@@ -23,7 +23,8 @@
 			        <input type="checkbox" value="remember-me"> Remember me
 			      </label>
 			    </div>
-			    <button class="btn btn-lg btn-primary btn-block" onclick="javascript:login();">Login</button>
+			    
+			    <button class="btn btn-lg btn-primary btn-block">Login</button>
 			    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
 			  </form>
 			</div>
