@@ -58,10 +58,10 @@ String ctx = request.getContextPath();
                 </span>
               </li>
               <c:if test="${empty sessionScope.loginUser}">
-			  	<li class="dropdown"><button class="dropbtn" id="btnLogin"><a href="<%=ctx%>/loginPage">Login</a></button>  
+			  	<li class="dropdown"><button class="dropbtn" id="btnLogin"><a href="goLogin.do">Login</a></button>  
 			  </c:if>
               <c:if test="${not empty sessionScope.loginUser}">
-			  	<li class="dropdown"><button class="dropbtn" id="btnLogin"><a href="<%=ctx%>/userLogout">Logout</a></button>  
+			  	<li class="dropdown"><button class="dropbtn" id="btnLogin"><a href="goLogin">Logout</a></button>  
 			  </c:if>
                 <!--
                 <span class="dropdown-content">
