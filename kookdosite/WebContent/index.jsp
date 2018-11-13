@@ -19,6 +19,7 @@
       </div>
     </div>
   </section>
+
   <!-- END section -->
   <section class="probootstrap-section-half probootstrap-reverse">
     <div class="probootstrap-image probootstrap-animate"  data-animate-effect="fadeIn" style="background-image: url(<c:url value="/resources/img/machine/bending_machine.jpg" />)"></div>
