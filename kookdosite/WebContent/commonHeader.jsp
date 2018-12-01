@@ -39,29 +39,80 @@ String ctx = request.getContextPath();
 
           <nav role="navigation" class="probootstrap-nav hidden-xs">
             <ul class="probootstrap-main-nav">
-              <li class="dropdown"><button class="dropbtn"><a href="about.do">About</a></button>
-              </li>
-              <li class="dropdown"><button class="dropbtn"><a>Products</a></button>
-                <span class="dropdown-content">
-                  <a href="#">유압식 절단기</a>
-                  <a href="#">유압식 절곡기</a>
-                  <a href="#">코너 샤링머신</a>
-                  <a href="#">CNC V-컷팅머신</a>
-                  <a href="#">NC 펀칭프레스</a>
+              <li class="dropdown"><button class="dropbtn"><a>기업 프로필</a></button>
+              	<span class="dropdown-content">
+                  <a href="entp_ceo.do">대표이사 인사말</a>
+                  <a href="#">기업 비전</a>
+                  <a href="#">연혁</a>
+                  <a href="#">조직도</a>
+                  <a href="#">오시는 길</a>
                 </span>
               </li>
-              <li class="dropdown"><button class="dropbtn"><a>Contact Us</a></button>
+              <li class="dropdown"><button class="dropbtn"><a>제품소개</a></button>
                 <span class="dropdown-content">
-                  <a href="#">Information</a>
-                  <a href="tripreport_list.do">출장보고서</a>
-                  <a href="#">매각신청</a>
+                  <a href="#">하이브리드CNC절곡기</a>
+                  <a href="#">유압식 CNC절곡기</a>
+                  <a href="#">유압식 NC절곡기(상향식)</a>
+                  <a href="#">유압식 NC절곡기(상향식)</a>
+                  <a href="#">유압식 NC절단기</a>
+                  <a href="#">절단/절곡 로봇시스템</a>
+                  <a href="#">유압식 CNC V컷팅기</a>
+                  <a href="#">유압식 코너 샤링기</a>
+                  <a href="#">기타 제품</a>
+                </span>
+              </li>
+              <li class="dropdown"><button class="dropbtn"><a>기술 제휴 현황</a></button>
+                <span class="dropdown-content">
+                  <a href="#">CNC 컨트롤러</a>
+                  <a href="#">유압 시스템</a>
+                  <a href="#">TOOLING SYSTEMS</a>
+                  <a href="#">로봇 시스템</a>
+                  <a href="#">기타</a>
+                </span>
+              </li>
+              <li class="dropdown"><button class="dropbtn"><a>갤러리/영상</a></button>
+                <span class="dropdown-content">
+                  <a href="#">하이브리드CNC절곡기</a>
+                  <a href="#">유압식 CNC절곡기</a>
+                  <a href="#">유압식 NC절곡기(상향식)</a>
+                  <a href="#">유압식 NC절곡기(상향식)</a>
+                  <a href="#">유압식 NC절단기</a>
+                  <a href="#">절단/절곡 로봇시스템</a>
+                  <a href="#">유압식 CNC V컷팅기</a>
+                  <a href="#">유압식 코너 샤링기</a>
+                  <a href="#">기타 제품</a>
+                </span>
+              </li>
+              <li class="dropdown"><button class="dropbtn"><a>자금안내</a></button>
+              </li>
+              <li class="dropdown"><button class="dropbtn"><a>재고 리스트</a></button>
+                <span class="dropdown-content">
+                  <a href="#">신제품</a>
+                  <a href="#">중고제품</a>
+                </span>
+              </li>
+              <li class="dropdown"><button class="dropbtn"><a>고객지원</a></button>
+                <span class="dropdown-content">
+                  <a href="#">제품 카달로그</a>
+                  <a href="#">금형 도면 다운로드</a>
+                  <a href="#">설명서 다운로드</a>
+                  <a href="#">프로그램 다운로드</a>
                 </span>
               </li>
               <c:if test="${empty sessionScope.loginUser}">
 			  	<li class="dropdown"><button class="dropbtn" id="btnLogin"><a href="goLogin.do">Login</a></button>  
 			  </c:if>
               <c:if test="${not empty sessionScope.loginUser}">
-			  	<li class="dropdown"><button class="dropbtn" id="btnLogin"><a href="goLogin">Logout</a></button>  
+			  	<li class="dropdown"><button class="dropbtn" id="btnLogin"><a href="goLogin">Logout</a></button>
+			  		<span class="dropdown-content">
+	                  <a href="#">거래처 등록/조회</a>
+	                  <a href="#">A/S 출장 보고서 등록</a>
+	                  <a href="#">매입처 등록/조회</a>
+	                  <a href="#">출장스케줄링</a>
+	                  <a href="#">절곡/절단 능력조회</a>
+	                  <a href="#">직원 명단 조회</a>
+	                </span>
+			  	</li>
 			  </c:if>
                 <!--
                 <span class="dropdown-content">
