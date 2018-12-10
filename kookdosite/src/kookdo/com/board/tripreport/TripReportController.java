@@ -65,6 +65,7 @@ public class TripReportController extends HttpServlet {
 		
 		request.setAttribute("note", note);
 		request.setAttribute("remark", remark);
+		request.setAttribute("boardList", remark);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("views/board/businesstripreport_list.jsp");
 		dispatcher.forward(request, response);
 	}

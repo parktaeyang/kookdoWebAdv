@@ -108,7 +108,7 @@ String ctx = request.getContextPath();
 	                  <a href="#">거래처 등록/조회</a>
 	                  <a href="#">A/S 출장 보고서 등록</a>
 	                  <a href="#">매입처 등록/조회</a>
-	                  <a href="#">출장스케줄링</a>
+	                  <a href="tripreport_list.do">출장스케줄링</a>
 	                  <a href="#">절곡/절단 능력조회</a>
 	                  <a href="#">직원 명단 조회</a>
 	                </span>
