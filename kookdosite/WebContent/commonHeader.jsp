@@ -42,9 +42,9 @@ String ctx = request.getContextPath();
               <li class="dropdown"><button class="dropbtn"><a>기업 프로필</a></button>
               	<span class="dropdown-content">
                   <a href="entp_ceo.do">대표이사 인사말</a>
-                  <a href="#">기업 비전</a>
-                  <a href="#">연혁</a>
-                  <a href="#">조직도</a>
+                  <a href="entp_vision.do">기업 비전</a>
+                  <a href="entp_history.do">연혁</a>
+                  <a href="entp_group.do">조직도</a>
                   <a href="#">오시는 길</a>
                 </span>
               </li>
