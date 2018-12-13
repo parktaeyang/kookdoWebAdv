@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -15,21 +14,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.json.simple.JSONObject;
-
-
 
 /**
  * Servlet implementation class AboutController
  */
-@WebServlet("/Login.do")
-public class LoginController extends HttpServlet {
+@WebServlet("/join.do")
+public class JoinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginController() {
+    public JoinController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,6 +37,8 @@ public class LoginController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
+		
+		
 	}
 
 	/**
@@ -61,46 +61,26 @@ public class LoginController extends HttpServlet {
 		//String USER="xodxod12345"; //개발테스트
 		//String PASS="Ekdmsdl123!"; //개발테스트
 		String errorTest = "";
-		String loginId = "";
-		String loginPassword = "";
-		String loginResult = "";
-		String regState = "";
-		String code = "";
-		String message = "";
 		Connection conn =null;
 		Statement stmt = null;
-		ResultSet rs = null;
-		
 		JSONObject json = new JSONObject();
+		int rs = 0;
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(URL,USER,PASS);
 			stmt = conn.createStatement();
 			String userId = request.getParameter("userId");
 			String password = request.getParameter("password");
-			rs= stmt.executeQuery("select * from user_info where id = '" + userId + "'");
-			while(rs.next()){
-				loginId = rs.getString("id");
-				if(loginId.equals(userId)) { // 비번빼고 아이디 검사하고 비번 체크해
-					loginPassword = rs.getString("password");
-					if(password.equals(loginPassword)) {
-						regState = rs.getString("state");
-						if(regState.equals("accept")) {
-							loginResult = "accept";
-							System.out.println("로그인 성공");
-							System.out.println("아이디 : " + loginId);
-						} else {
-							System.out.println("관리자 승인 후");
-							loginResult = "fail";
-						}
-					} else {
-						loginResult = "notMatched";
-					}
-				} else {
-					System.out.println("계정 없음");
-					loginResult = "notFound";
-				}
-			}
+			String type = request.getParameter("type");
+			String company = request.getParameter("company");
+			String address = request.getParameter("address");
+			String email = request.getParameter("email");
+			String mobile = request.getParameter("mobile");
+			String tel = request.getParameter("tel");
+			System.out.println("INSERT INTO user_info values( '" + userId + "','" + password + "','" + email + "','" + address + "','" +
+									mobile + "','" + type + "','" + company + "','" + tel + "', 'wait');" );
+			rs= stmt.executeUpdate("INSERT INTO user_info values( '" + userId + "','" + password + "','" + email + "','" + address + "','" +
+									mobile + "','" + type + "','" + company + "','" + tel + "', 'wait');" );
 			errorTest = "no error";
 
 		} catch(SQLException | ClassNotFoundException e){
@@ -108,46 +88,28 @@ public class LoginController extends HttpServlet {
 			request.setAttribute("errorTest", errorTest);
 			e.printStackTrace();
 		} finally{
-			if(rs != null) try{rs.close();} catch(SQLException ex){}
-			if(stmt != null) try{stmt.close();} catch(SQLException ex){}
-			if(conn != null) try{conn.close();} catch(SQLException ex){}
+//				if(rs != 1) try{error = "tets";} catch(SQLException ex){}
+				if(stmt != null) try{stmt.close();} catch(SQLException ex){}
+				if(conn != null) try{conn.close();} catch(SQLException ex){}
 		}
-		
-		switch (loginResult) {
-		case "accept":
-			HttpSession session = request.getSession();
-			session.setAttribute("loginUser", loginId);
-			code = "200";
-			message = "success";
+		if(rs == 1) {
+			String code = "200";
+			String message = "저장 되었습니다. 관리자 승인 후 로그인 가능합니다.";
+			
 			json.put("code", code);
 			json.put("message", message);
+			
  			response.setContentType("application/json; charset=utf-8");
 			response.getWriter().write(json.toString());
-			break;
-		case "fail":
-			code = "106";
-			message = "관리자 승인 후 로그인 가능합니다.";
+		} else {
+			String code = "500";
+			String message = "서버 오류 입니다.";
+			
 			json.put("code", code);
 			json.put("message", message);
+			
  			response.setContentType("application/json; charset=utf-8");
 			response.getWriter().write(json.toString());
-			break;
-		case "notFound": //계정없음
-			code = "400";
-			message = "로그인에 실패 했습니다.";
-			json.put("code", code);
-			json.put("message", message);
- 			response.setContentType("application/json; charset=utf-8");
-			response.getWriter().write(json.toString());
-			break;
-		case "notMatched": //비번 틀림
-			code = "400";
-			message = "로그인에 실패 했습니다.";
-			json.put("code", code);
-			json.put("message", message);
- 			response.setContentType("application/json; charset=utf-8");
-			response.getWriter().write(json.toString());
-			break;
 		}
 	}
 

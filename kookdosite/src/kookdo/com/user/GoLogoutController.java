@@ -8,18 +8,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class AboutController
  */
-@WebServlet("/goLogin.do")
-public class GoLoginController extends HttpServlet {
+@WebServlet("/goLogout.do")
+public class GoLogoutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GoLoginController() {
+    public GoLogoutController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,8 +29,12 @@ public class GoLoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("views/user/login.jsp");
-		dispatcher.forward(request, response);	}
+		HttpSession session = request.getSession();
+	    session.invalidate();
+	    response.sendRedirect("about.jsp");
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("/about.jsp");
+//		dispatcher.forward(request, response);
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

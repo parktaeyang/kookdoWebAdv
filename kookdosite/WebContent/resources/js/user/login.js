@@ -25,33 +25,25 @@
 	    
 	    
 		 $.ajax({
-		     url:"userLogin",
+		     url:"Login.do",
 		     type:"post",
 		     data:$("#loginData").serialize(),
 		     success:function(data){
-		         resultLogin(data.retType, data.retString);
+		         resultLogin(data.code, data.message);
 		     }, error   :   function(data){
-		         alert(data + "시스템 에러가 발생하였습니다.");
+		         alert(data.message + "시스템 에러가 발생하였습니다.");
 		     }
 		 });
 	}
 	
-	function resultLogin(retType, retString ) {
-
-		if(retType == "5001") {
-			alert(retString);
-//			$("#loading").hide();
-		} else if(retType == "5002") {
-			alert(retString);
-//	        $("#loading").hide();
-		} else if(retType == "5003") {
-			alert(retString);
-//	        $("#loading").hide();
-		} else if(retType == "0000") {
-			console.log("retType===>"+retType);
-//			var url = "<c:url value='/' />"+retString ;
-//			console.log("url===>"+url);
-			location.href="home.do";
+	function resultLogin(code, message ) {
+		if(code == "404") {
+			alert(message);
+		} else if(code == "106") {
+			alert(message)
+		} else if(code == "200") {
+			console.log("code===>"+code);
+			location.href="index.do";
 		}
 		
 	}
