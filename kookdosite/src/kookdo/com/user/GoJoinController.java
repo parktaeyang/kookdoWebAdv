@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class AboutController
  */
-@WebServlet("/goLogin.do")
-public class GoLoginController extends HttpServlet {
+@WebServlet("/goJoin.do")
+public class GoJoinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GoLoginController() {
+    public GoJoinController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,8 +28,9 @@ public class GoLoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("views/user/login.jsp");
-		dispatcher.forward(request, response);	}
+		RequestDispatcher dispatcher = request.getRequestDispatcher("views/user/join.jsp");
+		dispatcher.forward(request, response);
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
