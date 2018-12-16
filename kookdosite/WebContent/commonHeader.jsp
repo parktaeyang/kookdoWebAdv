@@ -103,8 +103,7 @@ String ctx = request.getContextPath();
 			  	<li class="dropdown"><button class="dropbtn" id="btnLogin"><a href="goLogin.do">Login</a></button>  
 			  </c:if>
               <c:if test="${not empty sessionScope.loginUser}">
-			  	<li class="dropdown"><button class="dropbtn" id="btnLogin"><a href="goLogin">Logout</a></button>
-			  		<span class="dropdown-content">
+				<li class="dropdown"><button class="dropbtn" id="btnLogin"><a href="goLogout.do">Logout</a></button>			  		<span class="dropdown-content">
 	                  <a href="#">거래처 등록/조회</a>
 	                  <a href="#">A/S 출장 보고서 등록</a>
 	                  <a href="#">매입처 등록/조회</a>
@@ -112,8 +111,7 @@ String ctx = request.getContextPath();
 	                  <a href="#">절곡/절단 능력조회</a>
 	                  <a href="#">직원 명단 조회</a>
 	                </span>
-			  	</li>
-			  </c:if>
+			  	</li>			  </c:if>
                 <!--
                 <span class="dropdown-content">
                   <a href="#">Link1</a>

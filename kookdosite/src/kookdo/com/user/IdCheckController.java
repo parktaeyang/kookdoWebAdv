@@ -22,14 +22,14 @@ import org.json.simple.JSONObject;
 /**
  * Servlet implementation class AboutController
  */
-@WebServlet("/Login.do")
-public class LoginController extends HttpServlet {
+@WebServlet("/idCheck.do")
+public class IdCheckController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginController() {
+    public IdCheckController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -53,6 +53,7 @@ public class LoginController extends HttpServlet {
 	 */
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String URL="jdbc:mysql://localhost:3306/xodxod12345?autoReconnect=true&serverTimezone=UTC&userSSL=true";
+		String te ="jdbc:mysql://localhost:3306/Peoples?autoReconnect=true&useSSL=false";
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 			
@@ -61,12 +62,8 @@ public class LoginController extends HttpServlet {
 		//String USER="xodxod12345"; //개발테스트
 		//String PASS="Ekdmsdl123!"; //개발테스트
 		String errorTest = "";
-		String loginId = "";
-		String loginPassword = "";
-		String loginResult = "";
-		String regState = "";
-		String code = "";
-		String message = "";
+		String loginUser = "";
+		Boolean duplicated = false;
 		Connection conn =null;
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -77,28 +74,15 @@ public class LoginController extends HttpServlet {
 			conn = DriverManager.getConnection(URL,USER,PASS);
 			stmt = conn.createStatement();
 			String userId = request.getParameter("userId");
-			String password = request.getParameter("password");
 			rs= stmt.executeQuery("select * from user_info where id = '" + userId + "'");
 			while(rs.next()){
-				loginId = rs.getString("id");
-				if(loginId.equals(userId)) { // 비번빼고 아이디 검사하고 비번 체크해
-					loginPassword = rs.getString("password");
-					if(password.equals(loginPassword)) {
-						regState = rs.getString("state");
-						if(regState.equals("accept")) {
-							loginResult = "accept";
-							System.out.println("로그인 성공");
-							System.out.println("아이디 : " + loginId);
-						} else {
-							System.out.println("관리자 승인 후");
-							loginResult = "fail";
-						}
-					} else {
-						loginResult = "notMatched";
-					}
+				loginUser = rs.getString("id");
+				if(loginUser.equals(userId)) {
+					System.out.println("아이디 중복");
+					duplicated = true;
 				} else {
-					System.out.println("계정 없음");
-					loginResult = "notFound";
+					System.out.println("로그인 실패");
+					duplicated = false;
 				}
 			}
 			errorTest = "no error";
@@ -112,42 +96,32 @@ public class LoginController extends HttpServlet {
 			if(stmt != null) try{stmt.close();} catch(SQLException ex){}
 			if(conn != null) try{conn.close();} catch(SQLException ex){}
 		}
-		
-		switch (loginResult) {
-		case "accept":
-			HttpSession session = request.getSession();
-			session.setAttribute("loginUser", loginId);
-			code = "200";
-			message = "success";
+		if(duplicated) {
+//			HttpSession session = request.getSession();
+//			session.setAttribute("loginUser", loginUser);
+			String code = "104";
+			String message = "아이디가 중복 되었습니다.";
+			
 			json.put("code", code);
 			json.put("message", message);
+			
  			response.setContentType("application/json; charset=utf-8");
 			response.getWriter().write(json.toString());
-			break;
-		case "fail":
-			code = "106";
-			message = "관리자 승인 후 로그인 가능합니다.";
+			
+			
+			//RequestDispatcher dispatcher = request.getRequestDispatcher("views/user/login.jsp");
+			//dispatcher.forward(request, response);
+		} else {
+			//HttpSession session = request.getSession();
+//			session.setAttribute("loginUser", loginUser);
+			String code = "200";
+			String message = "success";
+			
 			json.put("code", code);
 			json.put("message", message);
+			
  			response.setContentType("application/json; charset=utf-8");
 			response.getWriter().write(json.toString());
-			break;
-		case "notFound": //계정없음
-			code = "400";
-			message = "로그인에 실패 했습니다.";
-			json.put("code", code);
-			json.put("message", message);
- 			response.setContentType("application/json; charset=utf-8");
-			response.getWriter().write(json.toString());
-			break;
-		case "notMatched": //비번 틀림
-			code = "400";
-			message = "로그인에 실패 했습니다.";
-			json.put("code", code);
-			json.put("message", message);
- 			response.setContentType("application/json; charset=utf-8");
-			response.getWriter().write(json.toString());
-			break;
 		}
 	}
 
