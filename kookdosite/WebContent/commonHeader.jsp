@@ -32,7 +32,7 @@ String ctx = request.getContextPath();
 
     <header role="banner" class="probootstrap-header">
       <div class="container">
-          <a href="index.do" class="probootstrap-logo"  style="color: red">국도머신 로고</a>
+          <a href="index.do" class="probootstrap-logo"  style="color: red"><img src="resources/img/kd_logo.JPG" class="img-responsive"></a>
 
           <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
           <div class="mobile-menu-overlay"></div>
@@ -105,9 +105,9 @@ String ctx = request.getContextPath();
               <c:if test="${not empty sessionScope.loginUser}">
 				<li class="dropdown"><button class="dropbtn" id="btnLogin"><a href="goLogout.do">Logout</a></button>			  		<span class="dropdown-content">
 	                  <a href="#">거래처 등록/조회</a>
-	                  <a href="#">A/S 출장 보고서 등록</a>
+	                  <a href="tripreport_list.do">A/S 출장 보고서 등록</a>
 	                  <a href="#">매입처 등록/조회</a>
-	                  <a href="tripreport_list.do">출장스케줄링</a>
+	                  <a href="#">출장스케줄링</a>
 	                  <a href="#">절곡/절단 능력조회</a>
 	                  <a href="#">직원 명단 조회</a>
 	                </span>

@@ -56,10 +56,10 @@ public class LoginController extends HttpServlet {
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 			
-		String USER="root"; //로컬테스트 
-		String PASS="password123!"; //로컬테스트
-		//String USER="xodxod12345"; //개발테스트
-		//String PASS="Ekdmsdl123!"; //개발테스트
+		//String USER="root"; //로컬테스트 
+		//String PASS="pass123"; //로컬테스트
+		String USER="xodxod12345"; //개발테스트
+		String PASS="Ekdmsdl123!"; //개발테스트
 		String errorTest = "";
 		String loginId = "";
 		String loginPassword = "";

@@ -11,7 +11,9 @@ function businesstripreport_write(){
 	businesstripreport.submit();
 }
 
-
+function businesstripreport_list(){
+	businesstripreport.submit();
+}
 
 
 
