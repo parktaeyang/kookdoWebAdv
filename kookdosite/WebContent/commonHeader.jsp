@@ -45,7 +45,7 @@ String ctx = request.getContextPath();
                   <a href="entp_vision.do">기업 비전</a>
                   <a href="entp_history.do">연혁</a>
                   <a href="entp_group.do">조직도</a>
-                  <a href="#">오시는 길</a>
+                  <a href="entp_contactus.do">오시는 길</a>
                 </span>
               </li>
               <li class="dropdown"><button class="dropbtn"><a>제품소개</a></button>
@@ -110,6 +110,7 @@ String ctx = request.getContextPath();
 	                  <a href="#">출장스케줄링</a>
 	                  <a href="#">절곡/절단 능력조회</a>
 	                  <a href="#">직원 명단 조회</a>
+	                  <a href="goUserManagement.do">회원 관리</a>
 	                </span>
 			  	</li>			  </c:if>
                 <!--
