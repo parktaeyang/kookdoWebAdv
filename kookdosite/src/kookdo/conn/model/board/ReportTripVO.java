@@ -1,6 +1,6 @@
 package kookdo.conn.model.board;
 
-public class ReportTrip {
+public class ReportTripVO {
 	int board_seq = 0;
 	String trip_schedule= "";
 	String trip_member= "";
