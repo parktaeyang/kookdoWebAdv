@@ -17,12 +17,16 @@ public class TripReportWritePageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("views/board/businesstripreport_write.jsp");
-		dispatcher.forward(request, response);
+    	doProcess(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		doProcess(request, response);
+	}
+	
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("views/board/businesstripreport_write.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }

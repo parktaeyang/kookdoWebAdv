@@ -25,8 +25,8 @@
 					<thead>
 						<tr>
 							<th class="hidden-xs">글번호</th>
-							<th class="hidden-xs">작성자</th>
 							<th>제목</th>
+							<th class="hidden-xs">작성자</th>
 							<th>삭제</th>
 						</tr>
 					</thead>
@@ -40,13 +40,13 @@
 						<c:if test="${boardList!=null && not empty boardList}">
 							<c:forEach var="all_border" items="${boardList}">
 								<tr>
-									<td class="hidden-xs">${all_border.subject}</td>
+									<td class="hidden-xs">${all_border.board_seq}</td>
 
-									<td class="hidden-xs"><a href="<%=ctx%>/bordermove.do?subject=${all_border.subject}">${all_border.note}</a></td>
+									<td><a href="tripreport.do?board_seq=${all_border.board_seq}">${all_border.trip_schedule}</a></td>
 
-									<td>${all_border.remark}</td>
+									<td class="hidden-xs">${all_border.board_seq}</td>
 
-										<c:if test="${all_border.subject=='4'}">
+										<c:if test="${all_border.board_seq=='4'}">
 											<th>
 												<a class="btn btn-danger" data-toggle="modal"
 													data-target="#Delete_Modal" onclick="del('${all_border.subject}')">
@@ -70,7 +70,7 @@
 										<li class="active"><a href="#mList">${i}</a></li>
 									</c:if>
 									<c:if test="${i != ab_cpage}">
-										<li><a href="myteam_border.per?ab_cpage=${i}#mList">${i}</a></li>
+										<li><a href="tripreport_list.do?ab_cpage=${i}#mList">${i}</a></li>
 									</c:if>
 								</c:forEach>
 							</ul>
@@ -82,7 +82,7 @@
 										<li class="active"><a href="#allList">${i}</a></li>
 									</c:if>
 									<c:if test="${i != ab_cpage}">
-										<li><a href="all_border.per?ab_cpage=${i}#allList">${i}</a></li>
+										<li><a href="tripreport_list.do?ab_cpage=${i}#allList">${i}</a></li>
 									</c:if>
 								</c:forEach>
 							</ul>
