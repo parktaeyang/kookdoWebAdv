@@ -2,6 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page session="false" %>
 <% String ctx = request.getContextPath(); %>
+<!DOCTYPE html>
 <html>
 <jsp:include page="commonHeader.jsp" />
 
@@ -78,7 +79,7 @@
             {% csrf_token %}
             <input type="text" name="username" placeholder="Username">
             <input type="password" name="password" placeholder="Password">
-            <input type="submit" name="login"> <!-- value="Login" 
+            <input type="submit" name="login"> value="Login" 
             <input type="hidden" name="next" value="{{ next }}" />
           </form>
         <div class="login-help">
